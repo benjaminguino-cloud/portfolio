@@ -1,0 +1,152 @@
+* {
+  scroll-padding-top: 136px !important;
+}
+
+.desktop-nav {
+  display: none !important;
+}
+
+.site-logo {
+  width: 120px !important;
+}
+
+section, section .row-container {
+  width: 100%;
+}
+
+header {
+  position: fixed !important;
+  background-color: var(--primary);
+  box-shadow: 1px 1px 4px 1px #000000;
+}
+
+.hero-container {
+margin-top: 137px;
+}
+
+.hero-container .column-container {
+    padding: 50px 20px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 62px;
+}
+
+h2 {
+  font-size: 46px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+section .row-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 50px 20px;
+}
+
+.my-image {
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .gallery-items .item {
+    flex: 0 0 calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-items .item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.m-order-0 {
+    order: 1;
+}
+
+.m-order-1 {
+    order: 2;
+}
+
+.hamburger {
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* Slide Menu */
+.mobile-nav-container {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: #111;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    transition: right .35s ease;
+    z-index: 1001;
+}
+
+.mobile-nav-container nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.close-menu {
+  text-align: right;
+  font-size: 20px !important;
+}
+
+.mobile-nav-container a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.mobile-nav-container.active {
+    right: 0;
+}
+
+/* Background Overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 1000;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}

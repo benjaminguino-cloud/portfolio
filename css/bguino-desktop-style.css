@@ -1,0 +1,51 @@
+
+.mobile-nav {
+  display: none !important;
+}
+
+#menu-btn {
+    display: none;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+section, section .row-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section {
+  min-height: calc(100vh - 200px);
+}
+
+section .row-container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 100px 50px;
+  min-height: 100%;
+}
+
+header.scrolled-header {
+  background-color: var(--primary);
+  transition: 0.5s ease-in-out;
+  box-shadow: 1px 1px 4px 1px #000000;
+  max-height: 200px;
+} header.scrolled-header .column-container {
+  gap: 12px !important;
+}
+
+.hero-container {
+  min-height: 100vh;;
+}
+
+.my-image {
+  width: 500px;
+  height: 500px;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
