@@ -18,7 +18,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   z-index: 1;
-  scroll-padding-top: 199px; 
+  scroll-padding-top: 199px;
   scroll-behavior: smooth;
 }
 
@@ -181,7 +181,7 @@ nav a {
     rgba(0, 0, 0, 0.9) 0%,
     rgba(0, 0, 0, 0.65) 50%,
     rgba(0, 0, 0, 0.35) 100%
-    ), url(../resources/hero-background.png);
+    ), url(../resources/hero-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
