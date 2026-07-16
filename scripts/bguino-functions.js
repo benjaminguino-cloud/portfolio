@@ -101,11 +101,11 @@ const loadingScreen = document.getElementById("loading-screen");
 
 // Initial page load
 window.addEventListener("load", () => {
-    loadingScreen.classList.add("show");
+  loadingScreen.classList.add("show");
 
-    setTimeout(() => {
+  setTimeout(() => {
     loadingScreen.classList.remove("show");
-    }, 1000); // Show for 1 second
+  }, 1000); // Show for 1 second
 });
 
 // Anchor links
@@ -120,7 +120,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         behavior: "smooth"
       });
       setTimeout(() => {
-        gScreen.classList.remove("show");
+        loadingScreen.classList.remove("show");
       }, 700);
     }, 300);
   });
