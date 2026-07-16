@@ -21,6 +21,7 @@ const slides = document.querySelectorAll('.slide');
 function showSlide(index) {
   slides.forEach(slide => slide.classList.remove('active'));
   slides[index].classList.add('active');
+  listAnimation(slides[index]);
 }
 
 function nextSlide() {
@@ -33,16 +34,32 @@ function prevSlide() {
   showSlide(currentSlide);
 }
 
+// list items animation
+function listAnimation(currentSlide) {
+  const listItems = currentSlide.querySelectorAll('li');
+    
+  const staggerTime = 0.15; // Time between each item appearance (in seconds)
+  const resetAfterCount = listItems.length; // Reset the delay loop after this many items
+
+  listItems.forEach((item, index) => {
+    // The modulo (%) operator resets the multiplier back to 0 once it hits the limit
+    const loopIndex = index % resetAfterCount; 
+    
+    const calculatedDelay = loopIndex * staggerTime;
+    item.style.animationDelay = `${calculatedDelay}s`;
+  });
+}
+
 // gallery show more
 const showMoreBtn = document.getElementById("showMoreBtn");
 const hiddenItems = document.querySelectorAll(".gallery-items .item");
 
 showMoreBtn.addEventListener("click", () => {
-    hiddenItems.forEach(item => {
-        item.style.display = "block";
-    });
+  hiddenItems.forEach(item => {
+    item.style.display = "block";
+  });
 
-    showMoreBtn.parentElement.style.display = "none";
+  showMoreBtn.parentElement.style.display = "none";
 });
 
 // gallery pop up
@@ -52,31 +69,31 @@ const lightboxImg = document.getElementById("lightbox-img");
 const closeBtn = document.querySelector(".close");
 
 galleryImages.forEach(image => {
-    image.addEventListener("click", () => {
-      lightboxImg.src = image.src;
-      lightboxImg.alt = image.alt;
-      lightboxImg.title = image.title;
+  image.addEventListener("click", () => {
+    lightboxImg.src = image.src;
+    lightboxImg.alt = image.alt;
+    lightboxImg.title = image.title;
 
-      lightbox.classList.add("show");
-    });
+    lightbox.classList.add("show");
   });
+});
 
-  function closeLightbox() {
-    lightbox.classList.remove("show");
+function closeLightbox() {
+  lightbox.classList.remove("show");
+}
+
+closeBtn.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) {
+    closeLightbox();
   }
+});
 
-  closeBtn.addEventListener("click", closeLightbox);
-
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") {
-      closeLightbox();
-    }
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
 });
 
 //loading
@@ -87,32 +104,26 @@ window.addEventListener("load", () => {
     loadingScreen.classList.add("show");
 
     setTimeout(() => {
-        loadingScreen.classList.remove("show");
+    loadingScreen.classList.remove("show");
     }, 1000); // Show for 1 second
 });
 
 // Anchor links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", function(e) {
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (!target) return;
-
-        e.preventDefault();
-
-        loadingScreen.classList.add("show");
-
-        setTimeout(() => {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-            setTimeout(() => {
-                loadingScreen.classList.remove("show");
-            }, 700);
-
-        }, 300);
-    });
+  link.addEventListener("click", function(e) {
+    const target = document.querySelector(this.getAttribute("href"));
+    if (!target) return;
+    e.preventDefault();
+    loadingScreen.classList.add("show");
+    setTimeout(() => {
+      target.scrollIntoView({
+        behavior: "smooth"
+      });
+      setTimeout(() => {
+        gScreen.classList.remove("show");
+      }, 700);
+    }, 300);
+  });
 });
 
 const openMenu = document.getElementById("open-menu");
@@ -121,12 +132,12 @@ const mobileNav = document.getElementById("mobile-nav-container");
 const overlay = document.getElementById("menu-overlay");
 
 function toggleMenu() {
-    openMenu.classList.toggle("active");
-    mobileNav.classList.toggle("active");
-    overlay.classList.toggle("active");
+  openMenu.classList.toggle("active");
+  mobileNav.classList.toggle("active");
+  overlay.classList.toggle("active");
 
-    document.body.style.overflow =
-        mobileNav.classList.contains("active") ? "hidden" : "";
+  document.body.style.overflow =
+  mobileNav.classList.contains("active") ? "hidden" : "";
 }
 
 openMenu.addEventListener("click", toggleMenu);
@@ -134,5 +145,5 @@ closeMenu.addEventListener("click", toggleMenu);
 overlay.addEventListener("click", toggleMenu);
 
 mobileNav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", toggleMenu);
+  link.addEventListener("click", toggleMenu);
 });
