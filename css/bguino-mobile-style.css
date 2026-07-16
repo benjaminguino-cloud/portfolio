@@ -1,13 +1,18 @@
 * {
-  scroll-padding-top: 136px !important;
+  scroll-padding-top: 150px !important;
 }
 
 .desktop-nav {
   display: none !important;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
 .site-logo {
-  width: 120px !important;
+  width: 140px !important;
 }
 
 section, section .row-container {
