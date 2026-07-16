@@ -21,7 +21,6 @@ const slides = document.querySelectorAll('.slide');
 function showSlide(index) {
   slides.forEach(slide => slide.classList.remove('active'));
   slides[index].classList.add('active');
-  listAnimation(slides[index]);
 }
 
 function nextSlide() {
@@ -32,22 +31,6 @@ function nextSlide() {
 function prevSlide() {
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
-}
-
-// list items animation
-function listAnimation(currentSlide) {
-  const listItems = currentSlide.querySelectorAll('li');
-    
-  const staggerTime = 0.15; // Time between each item appearance (in seconds)
-  const resetAfterCount = listItems.length; // Reset the delay loop after this many items
-
-  listItems.forEach((item, index) => {
-    // The modulo (%) operator resets the multiplier back to 0 once it hits the limit
-    const loopIndex = index % resetAfterCount; 
-    
-    const calculatedDelay = loopIndex * staggerTime;
-    item.style.animationDelay = `${calculatedDelay}s`;
-  });
 }
 
 // gallery show more
