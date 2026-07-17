@@ -155,3 +155,7 @@ section .row-container {
   opacity: 1;
   visibility: visible;
 }
+
+form input, form textarea {
+  width: 100%;
+}
