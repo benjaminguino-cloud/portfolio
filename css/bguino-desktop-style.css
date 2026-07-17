@@ -3,12 +3,36 @@
   display: none !important;
 }
 
+.desktop-nav nav a {
+  position: relative;
+}
+
+.desktop-nav nav a:after {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.desktop-nav nav a:hover:after {
+  opacity: 1;
+}
+
 #menu-btn {
   display: none;
 }
 
-.width-50 {
-  width: 50%;
+.width-60 {
+  width: 60%;
+}
+
+.width-40 {
+  width: 40%;
 }
 
 section, section .row-container {
@@ -48,4 +72,17 @@ header.scrolled-header {
   max-width: 100%;
   border-radius: 50%;
   object-fit: cover;
+}
+
+ul li {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

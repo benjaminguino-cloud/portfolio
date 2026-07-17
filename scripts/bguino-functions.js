@@ -18,9 +18,11 @@ window.addEventListener("scroll", () => {
 // slider
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
+listAnimation(slides[currentSlide]);
 function showSlide(index) {
   slides.forEach(slide => slide.classList.remove('active'));
   slides[index].classList.add('active');
+  listAnimation(slides[index]);
 }
 
 function nextSlide() {
@@ -31,6 +33,17 @@ function nextSlide() {
 function prevSlide() {
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
+}
+
+// list items animation
+function listAnimation(slide) {
+  const listItems = slide.querySelectorAll('ul li');
+
+  const delayInterval = 0.3; 
+
+  listItems.forEach((item, index) => {
+    item.style.animationDelay = `${(index + 1) * delayInterval}s`;
+  });
 }
 
 // gallery show more
