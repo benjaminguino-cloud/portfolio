@@ -75,6 +75,14 @@ h6 {
   font-size: 18px;
 }
 
+a {
+  -webkit-tap-highlight-color: unset;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .white-text {
   color: #ffffff !important;
 }
